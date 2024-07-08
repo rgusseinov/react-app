@@ -16,6 +16,8 @@ import EditContact, {
 import { action as destroyAction } from "./routes/destroy";
 import Index from './routes';
 import ErrorPage from './error-page';
+import GithubAccounts, { loader as githubAccountsLoader} from './routes/github-accounts';
+import GithubAccountView, { loader as viewLoader} from './routes/github-account-view';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,16 @@ const router = createBrowserRouter([
         path: "contacts/:contactId/destroy",
         action: destroyAction,
         errorElement: <div>Oops! There was an error.</div>,
+      },
+      {
+        path: "github-accounts",
+        element: <GithubAccounts />,
+        loader: githubAccountsLoader
+      },
+      {
+        path: "github-accounts/:accountId/view",
+        element: <GithubAccountView />,
+        loader: viewLoader
       },
     ],
   },

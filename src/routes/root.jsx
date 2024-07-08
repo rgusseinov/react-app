@@ -45,6 +45,20 @@ export default function Root() {
 				<nav>
 					{contacts.length ? (
 						<ul>
+							<li>
+								<NavLink
+									to={`github-accounts`}
+									className={({ isActive, isPending }) =>
+										isActive
+											? "active"
+											: isPending
+												? "pending"
+												: ""
+									}
+								>
+									<>Git Hub Accounts</>
+								</NavLink>
+							</li>
 							{contacts.map((contact) => (
 								<li key={contact.id}>
 									<NavLink
